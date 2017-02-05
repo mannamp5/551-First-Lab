@@ -11,6 +11,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     Button imageButton;
+    Button audioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent imageIntent = new Intent(MainActivity.this, ImageActivity.class);
                 startActivity(imageIntent);
+            }
+        });
+        audioButton = (Button) findViewById(R.id.button2);
+        audioButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent audioIntent = new Intent(MainActivity.this, AudioActivity.class);
+                startActivity(audioIntent);
             }
         });
 
