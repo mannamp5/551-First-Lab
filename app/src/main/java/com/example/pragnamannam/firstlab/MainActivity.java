@@ -3,10 +3,13 @@ package com.example.pragnamannam.firstlab;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import org.opencv.android.OpenCVLoader;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +34,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(audioIntent);
             }
         });
-
+        if (!OpenCVLoader.initDebug()) {
+            Log.e(this.getClass().getSimpleName(), "  OpenCVLoader.initDebug(), not working.");
+        } else {
+            Log.d(this.getClass().getSimpleName(), "  OpenCVLoader.initDebug(), working.");
+        }
         // http://stackoverflow.com/questions/30004658/pick-an-image-from-gallery-in-android-studio
 
     }
